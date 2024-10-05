@@ -179,25 +179,39 @@ body {
   background-color: #181a1b;
   box-shadow: none;
   transition: all 0.3s ease-in-out;
+  position: relative;
 }
 
 .projectCard:hover {
+  -webkit-box-shadow: inset 0px 0px 0px 10px rgba(255,0,0,1);
+  -moz-box-shadow: inset 0px 0px 0px 10px rgba(255,0,0,1);
+  box-shadow: inset 0px 0px 0px 10px rgba(255,0,0,1);
   transform: scale(1.05);
+  height: calc(auto + 50%);
 }
 
 .projectCard::after {
-  transition: all 0.3s ease-in-out;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s ease-in-out;
   content: "";
-  background-color: red;
   opacity: 0;
-  visibility: hidden;
+  height: 0; /* Start with height 0 */
+  visibility: hidden; /* Keep hidden until hover */
+  position: absolute; /* Position absolutely within the card */
+  left: 10%; /* Align it to the left */
+  right: 10%; /* Align it to the right */
+  bottom: 10%; /* Align it to the bottom */
+  transform: translateY(10%); /* Start slightly lower for effect */
 }
 
 .projectCard:hover::after {
   content: "AFTER";
   opacity: 1;
-  visibility: visible;
+  visibility: visible; /* Make it visible */
+  height: 20%; /* Set the desired height */
+  transform: translateY(0); /* Move it to its original position */
 }
 
 #footerSection {
