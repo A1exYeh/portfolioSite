@@ -44,12 +44,12 @@ body {
 #navLinks div a {
   color: #ffffff;
   text-decoration: none;
-  transition: font-weight 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 #navLinks div a:hover {
   color: rgb(48, 209, 88);
-  font-weight: bold;
+  font-weight: 600;
 }
 
 #navToggle {
@@ -66,11 +66,11 @@ body {
 #navToggle #navToggleButton i {
   color: white;
   font-size: 1.4em;
-  transition: font-weight 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 #navLinks div#navLogo a svg {
-  transition: font-weight 0.4s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 #navToggle #navToggleButton i:hover,
@@ -136,11 +136,49 @@ body {
   height: 25vh;
 }
 
-infoSection {
+.greenHover {
+  cursor: default !important;
+  transition: 0.3s ease-in-out;
+}
+
+#heroText h1 {
+  font-weight: 500;
+}
+#heroText h5 {
+  font-weight: 400;
+}
+
+.greenHover:hover {
+  color: rgb(48, 209, 88);
+  font-weight: bold !important;
+}
+
+.infoSection {
   height: 100vh;
 }
 
-#footer-section {
+#projectList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  margin-top: 10vh;
+}
+
+.projectCard {
+  text-align: center;
+  width: calc(1200px * 0.8);
+  max-width: 80vw;
+  min-width: auto;
+  border-radius: 1.5em;
+  padding: clamp(2em, 10vw, 4em);
+  font-size: clamp(1.2em, calc(0.2em + 1.5vw), calc(0.4em + 1.2vw));
+  background-color: red;
+  overflow: hidden;
+}
+
+#footerSection {
   background-color: #1e201e;
   height: 15vh;
 }
