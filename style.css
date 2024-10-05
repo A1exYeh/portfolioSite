@@ -1,0 +1,152 @@
+/* You can add custom CSS and extend Boostrap styles in this file. Remember, Bootstrap is just CSS at the end of the day! */
+
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Work Sans", sans-serif;
+}
+
+#navBar {
+  background-color: #1e201e9c;
+  backdrop-filter: blur(2px);
+  height: auto;
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+#navLinks {
+  height: inherit;
+  display: flex;
+  gap: 4vw;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  margin-left: 2vw;
+  font-size: clamp(1.2em, 1.4vw, 1.3em);
+  padding: 0.6em;
+  padding-right: 8vw;
+}
+
+#navLogo {
+  margin-right: auto;
+}
+
+#toggleButton {
+  transition: opacity 0.4s ease;
+}
+
+#navLinks div a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: font-weight 0.4s ease-in-out;
+}
+
+#navLinks div a:hover {
+  color: rgb(48, 209, 88);
+  font-weight: bold;
+}
+
+#navToggle {
+  position: absolute;
+  right: 2vw;
+  top: 0.4em;
+}
+
+#navToggle #navToggleButton {
+  border: none;
+  background-color: inherit;
+}
+
+#navToggle #navToggleButton i {
+  color: white;
+  font-size: 1.4em;
+  transition: font-weight 0.4s ease-in-out;
+}
+
+#navLinks div#navLogo a svg {
+  transition: font-weight 0.4s ease-in-out;
+}
+
+#navToggle #navToggleButton i:hover,
+#navLinks div#navLogo a svg:hover {
+  color: rgb(48, 209, 88);
+  font-weight: bold;
+}
+
+#hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#heroImage {
+  background: url(./img/hero2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateZ(0);
+  z-index: 1;
+}
+
+#heroImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.5),
+    rgb(0, 0, 0, 1)
+  );
+  z-index: 2;
+}
+
+#heroContent {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  z-index: 3;
+}
+
+#heroText {
+  text-align: center;
+  color: white;
+  height: 25vh;
+}
+
+#projects-section,
+#skills-section,
+#contact-section {
+  height: 100vh;
+}
+
+#footer-section {
+  background-color: #1e201e;
+  height: 15vh;
+}
+
+#skills-section {
+  background-color: #1e201e;
+}
