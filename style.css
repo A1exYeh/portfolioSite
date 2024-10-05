@@ -171,14 +171,39 @@ body {
   width: calc(1200px * 0.8);
   max-width: 80vw;
   min-width: auto;
+  height: auto;
   border-radius: 1.5em;
   padding: clamp(2em, 10vw, 4em);
   font-size: clamp(1.2em, calc(0.2em + 1.5vw), calc(0.4em + 1.2vw));
-  background-color: red;
   overflow: hidden;
+  background-color: #181a1b;
+  box-shadow: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.projectCard:hover {
+  transform: scale(1.05);
+}
+
+.projectCard::after {
+  transition: all 0.3s ease-in-out;
+  display: block;
+  content: "";
+  background-color: red;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.projectCard:hover::after {
+  content: "AFTER";
+  opacity: 1;
+  visibility: visible;
 }
 
 #footerSection {
   background-color: #1e201e;
   height: 15vh;
 }
+
+/* Morph Card 
+https://codepen.io/AlexZab/pen/GREpYqp*/
