@@ -15,10 +15,11 @@ function checkNavWdith() {
     toggleButton.style.opacity = "0";
     toggleButton.style.visibility = "hidden";
     //show the links
-    navLinksALL.forEach((link) => {
+    navLinks.forEach((link) => {
       link.style.transition = "opacity 0.4s ease";
       link.style.visiblity = "visible";
       link.style.opacity = "1";
+      link.style.width = "auto";
     });
     if (toggleOpen) {
       navLinksALL.style.flexDirection = "row";
@@ -30,10 +31,11 @@ function checkNavWdith() {
     toggleButton.style.opacity = "1";
     toggleButton.style.visibility = "visible";
     //hide the links
-    navLinksALL.forEach((link) => {
+    navLinks.forEach((link) => {
       link.style.transition = "opacity 0.4s ease";
       link.style.visiblity = "hidden";
       link.style.opacity = "0";
+      link.style.width = "1px";
     });
   }
 }
@@ -58,13 +60,14 @@ toggleButton.addEventListener("click", function () {
     navLinksALL.style.flexDirection = "row";
     navLinksALL.style.alignItems = "center";
     navLinksALL.style.paddingBottom = "0.6em";
-    navLinksALL.forEach((link) => {
+    navLinks.forEach((link) => {
       link.style.visiblity = "Hidden";
       link.style.opacity = "0";
+      link.style.width = "1px";
     });
     toggleOpen = false;
   } else if (!toggleOpen) {
-    navLinksALL.forEach((link) => {
+    navLinks.forEach((link) => {
       link.style.transition = "opacity 0.4s ease";
     });
     navLinksALL.style.flexDirection = "column";
@@ -73,6 +76,7 @@ toggleButton.addEventListener("click", function () {
     navLinks.forEach((link) => {
       link.style.visiblity = "visible";
       link.style.opacity = "1";
+      link.style.width = "auto";
     });
     toggleOpen = true;
   }
