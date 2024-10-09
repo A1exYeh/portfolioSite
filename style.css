@@ -19,6 +19,7 @@ body {
   backdrop-filter: blur(2px);
   height: auto;
   position: absolute;
+  width: 100vw;
   z-index: 4;
   top: 0;
   right: 0;
@@ -27,6 +28,7 @@ body {
 
 #navLinks {
   height: inherit;
+  width: 100%;
   display: flex;
   gap: 4vw;
   flex-direction: row;
@@ -140,6 +142,7 @@ body {
   text-align: center;
   color: white;
   height: 25vh;
+  min-height: fit-content;
 }
 
 .greenHover {
