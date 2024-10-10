@@ -9,7 +9,7 @@
 html,
 body {
   box-sizing: border-box;
-  background-color: black;
+  background-color: #090b09;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
@@ -17,8 +17,7 @@ body {
 }
 
 #navBar {
-  background-color: #1e201e9c;
-  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0);
   height: auto;
   position: absolute;
   z-index: 4;
@@ -37,13 +36,23 @@ body {
   align-items: center;
   text-align: center;
   margin-left: 2vw;
-  font-size: clamp(1.2em, 1.4vw, 1.3em);
+  font-size: clamp(1.2em, 1.6vw, 1.3em);
+  font-weight: 400;
   padding: 0.6em;
   padding-right: 8vw;
+  padding-left: 6vw;
 }
 
 #navLogo {
   margin-right: auto;
+  margin-left: none;
+}
+
+#navLogo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 #toggleButton {
@@ -56,10 +65,10 @@ body {
   transition: 0.3s ease-in-out;
 }
 
-#navLinks div a:hover {
+/* #navLinks div a:hover {
   color: rgb(48, 209, 88);
   font-weight: 600;
-}
+} */
 
 #navToggle {
   position: absolute;
@@ -90,16 +99,18 @@ body {
 
 #hero-section {
   position: relative;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
 #heroImage {
-  background: url(./img/hero2.jpg);
+  /* credit: https://unsplash.com/photos/green-ferns-on-a-black-background-hnysCJrPpkc?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash */
+  background: url(./img/hero3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   height: 100%;
   position: absolute;
   top: 0;
@@ -119,11 +130,11 @@ body {
   bottom: 0;
   height: 100%;
   background: linear-gradient(
+    rgba(9, 11, 9, 0.2),
+    rgba(9, 11, 9, 0),
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.5),
-    rgb(0, 0, 0, 1)
+    rgba(9, 11, 9, 0),
+    rgba(9, 11, 9, 1)
   );
   z-index: 2;
 }
@@ -140,31 +151,54 @@ body {
 }
 
 #heroText {
-  text-align: center;
   color: white;
-  height: 25vh;
+  min-height: 25vh;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#heroIcon {
+  padding: 1em;
+  background-color: red;
+  clip-path: circle();
 }
 
 .greenHover {
-  cursor: default !important;
+  cursor: default;
   transition: 0.3s ease-in-out;
 }
 
-#heroText h1 {
-  font-weight: 500;
+a.greenHover {
+  cursor: pointer !important;
 }
 
-#heroText h5 {
+#heroTitle {
+  font-weight: 500;
+  font-size: clamp(3.4em, 3.8vw, 4.6vw);
+}
+
+#heroSubtitle {
   font-weight: 400;
+  font-size: clamp(3.8em, 4vw, 5vw);
+}
+
+#heroTitle,
+#heroSubtitle {
+  text-align: left;
 }
 
 .greenHover:hover {
-  color: rgb(48, 209, 88);
+  color: rgb(48, 209, 88) !important;
   font-weight: bold !important;
 }
 
 .infoSection {
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .infoSection h1.greenHover {
@@ -175,8 +209,20 @@ body {
 
 #missionSection {
   position: relative;
-  margin-bottom: auto;
-  z-index: 0;
+}
+
+.missionCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#missionText {
+  padding: 5%;
+}
+
+#missionText div {
+  width: 90%;
 }
 
 #missionSection h1 {
@@ -184,9 +230,9 @@ body {
 }
 
 #missionSection div div img {
-  width: 40vw;
+  width: 90%;
+  max-width: 100%;
   height: auto;
-  margin-bottom: 10vh;
   overflow-y: hidden;
 }
 
@@ -197,8 +243,11 @@ body {
 .twoCol {
   display: flex;
   flex-direction: row;
+  gap: 1em;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 #projectList {
@@ -206,10 +255,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 100vw;
+  width: 100%;
   margin-top: 10vh;
-  padding-left: 96px;
-  padding-right: 96px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .projectCard {
@@ -265,7 +314,8 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.projectCard:hover::before {
+.projectCard:hover::before,
+.projectCard:active::before {
   opacity: 1;
 }
 
@@ -292,7 +342,8 @@ body {
   transform: translateY(10%); /* Start slightly lower for effect */
 }
 
-.projectCard:hover::after {
+.projectCard:hover::after,
+.projectCard:active::after {
   content: "AFTER";
   opacity: 1;
   visibility: visible; /* Make it visible */
@@ -301,7 +352,7 @@ body {
 }
 
 #footerSection {
-  background-color: #1e201e;
+  background-color: #121612;
   height: 15vh;
 }
 
