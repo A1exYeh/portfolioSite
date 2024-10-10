@@ -16,9 +16,10 @@ function checkNavWdith() {
     toggleButton.style.visibility = "hidden";
     //show the links
     navLinks.forEach((link) => {
-      link.style.transition = "opacity 0.4s ease";
       link.style.visiblity = "visible";
       link.style.opacity = "1";
+    });
+    navLinks.forEach((link) => {
       link.style.width = "auto";
     });
     if (toggleOpen) {
@@ -32,9 +33,10 @@ function checkNavWdith() {
     toggleButton.style.visibility = "visible";
     //hide the links
     navLinks.forEach((link) => {
-      link.style.transition = "opacity 0.4s ease";
       link.style.visiblity = "hidden";
       link.style.opacity = "0";
+    });
+    navLinks.forEach((link) => {
       link.style.width = "1px";
     });
   }
@@ -54,9 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //toggles the opening of the menu
 toggleButton.addEventListener("click", function () {
   if (toggleOpen) {
-    navLinks.forEach((link) => {
-      link.style.transition = "opacity 0s ease";
-    });
+  
     navLinksALL.style.flexDirection = "row";
     navLinksALL.style.alignItems = "center";
     navLinksALL.style.paddingBottom = "0.6em";
@@ -67,9 +67,7 @@ toggleButton.addEventListener("click", function () {
     });
     toggleOpen = false;
   } else if (!toggleOpen) {
-    navLinks.forEach((link) => {
-      link.style.transition = "opacity 0.4s ease";
-    });
+  
     navLinksALL.style.flexDirection = "column";
     navLinksALL.style.alignItems = "flex-start";
     navLinksALL.style.paddingBottom = "2em";
