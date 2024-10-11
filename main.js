@@ -23,6 +23,10 @@ const projectCardInfo = [
   "A test module for a second project.",
 ];
 
+//projectButton
+const projectButtonGym = document.getElementById("projectButtonGym");
+const projectButtonGymIcon = document.getElementById("projectButtonGymIcon");
+
 //checks the width of the screen and shows/hides the toggle button accordingly
 function checkNavWdith() {
   if (mediaWidthMd.matches) {
@@ -48,7 +52,7 @@ function checkNavWdith() {
     toggleButton.style.visibility = "visible";
     //hide the links
     navLinks.forEach((link) => {
-      link.style.visiblity = "hidden";
+      link.style.visibility = "hidden";
       link.style.opacity = "0";
     });
     navLinks.forEach((link) => {
@@ -98,9 +102,10 @@ document.addEventListener("DOMContentLoaded", function () {
       card.setAttribute("data-card-info", projectCardInfo[index]);
     }
   });
+
 });
 
-//toggles the opening of the menu
+//toggles the opening of the menu on click
 toggleButton.addEventListener("click", function () {
   if (toggleOpen) {
     navLinksALL.style.flexDirection = "row";
@@ -123,4 +128,20 @@ toggleButton.addEventListener("click", function () {
     });
     toggleOpen = true;
   }
+});
+
+projectButtonGym.addEventListener("mouseenter", function () {
+  // projectButtonGymIcon.style.color = "rgb(48, 209, 88)";
+  // projectButtonGymIcon.classList.remove("bi-arrow-up-right-square");
+  // projectButtonGymIcon.classList.add("bi-arrow-up-right-square-fill");
+  projectButtonGymIcon.classList.add("scale");
+  console.log("scale add");
+});
+
+projectButtonGym.addEventListener("mouseleave", function () {
+  // projectButtonGymIcon.style.color = "black";
+  // projectButtonGymIcon.classList.add("bi-arrow-up-right-square");
+  // projectButtonGymIcon.classList.remove("bi-arrow-up-right-square-fill");
+  projectButtonGymIcon.classList.remove("scale");
+  console.log("scale remove");
 });
