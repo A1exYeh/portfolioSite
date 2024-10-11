@@ -317,8 +317,9 @@ a.greenHover {
   min-width: auto;
   min-height: 30vh;
   height: auto;
+  max-height: max-content;
   border-radius: 1.5em;
-  padding: clamp(2em, 10vw, 4em);
+  padding: clamp(1em, 8vw, 4em);
   font-size: clamp(1.2em, calc(0.2em + 1.2vw), calc(0.4em + 1.2vw));
   overflow: hidden;
   background-color: #181a1b;
@@ -401,10 +402,11 @@ a.greenHover {
 .projectCardIcons {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   gap: 4%;
   justify-content: flex-start;
-  margin: 1% 0;
+  margin: 50% 0;
 }
 
 .projectCardIcons a {
@@ -413,19 +415,25 @@ a.greenHover {
 }
 
 .projectCardIcons i {
-  font-size: 1.2em;
+  font-size: 1.4em;
   min-width: 1.2em;
 }
 
 .projectButton {
   border:none;
-  border-radius: 1.5em;
-  font-size: 0.8em;
-  padding: 0.2em;
+  border-radius: 1em;
+  font-size: clamp(0.4em, 0.8em, 1em);
+  padding:  0.2em 0.6em;
+  background-color: #8f8e93;
+}
+
+.projectButton:hover,
+.projectButton:active {
+  transition: all 0.4s ease-in-out;
+  background-color: red;
 }
 
 .projectButton i {
-  transition: all 0.2s ease-in;
   font-size: 1em;
 }
 
