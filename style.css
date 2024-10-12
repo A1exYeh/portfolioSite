@@ -21,6 +21,11 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+::selection {
+  background: rgb(48, 209, 88);
+  color: white;
+}
+
 #navBar {
   background-color: rgba(0, 0, 0, 0);
   height: auto;
@@ -160,8 +165,6 @@ body {
 }
 
 #heroIcon {
-  padding: 1em;
-  background-color: red;
   clip-path: circle();
 }
 
@@ -251,9 +254,14 @@ a.greenHover {
 .infoSection {
   position: relative;
   min-height: 100vh;
+  height: auto;
   width: 100%;
   overflow: hidden;
   padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
 }
 
 .infoSection h1.greenHover {
@@ -469,6 +477,7 @@ a.greenHover {
   margin-left: auto;
   margin-right: auto;
   padding: 2em;
+  transition: all 0.4s ease-in-out;
   border-radius: 1em;
 }
 
@@ -567,6 +576,10 @@ a.greenHover {
   );
 }
 
+.skillCard:hover {
+  width: 90%;
+}
+
 .skillCard:hover::before {
   opacity: 1;
 }
@@ -577,16 +590,51 @@ a.greenHover {
   font-weight: bold !important;
 }
 
-.skillCard p::selection {
-  background: rgb(48, 209, 88);
-  color: white;
-}
-
 .skillTitle {
   text-align: center;
   font-weight: 500;
   font-size: clamp(1.2em, 1.6em, 2em);
   color: white;
+}
+
+#contactSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#contactSection h1 {
+  padding-bottom: 10%;
+}
+
+#contactSection div.container {
+  margin-bottom: 25%;
+}
+
+.contactLink {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.contactIcon {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  color: white;
+}
+
+.contactIcon:hover,
+.contactIcon:active {
+  transform: scale(1.05);
+  color: rgb(48, 209, 88);
+}
+
+#carouselExampleCaptions {
+  width: 80%;
+  height: auto;
+  margin-bottom: 10%;
 }
 
 #footerSection {
