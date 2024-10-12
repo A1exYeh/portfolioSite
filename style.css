@@ -32,6 +32,7 @@ body {
   position: absolute;
   z-index: 4;
   padding-top: 0.2em;
+  margin-bottom: 1em;
   top: 0;
   right: 0;
   left: 0;
@@ -166,7 +167,12 @@ body {
 
 #heroIcon {
   clip-path: circle();
-  margin: 10% 0;
+  margin: 30% 0 2% 0;
+}
+
+#heroIcon img {
+  width: clamp(200px, 22vw, 300px);
+  height: auto;
 }
 
 .greenHover {
