@@ -6,20 +6,32 @@
 /* labelThird: #474749 */
 /* labelQuad: #252527 */
 
+* {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 html,
 body {
   box-sizing: border-box;
+  background-color: #090b09;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
 }
 
+::selection {
+  background: rgb(48, 209, 88);
+  color: white;
+}
+
 #navBar {
-  background-color: #1e201e9c;
-  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0);
   height: auto;
   position: absolute;
   z-index: 4;
+  padding-top: 0.2em;
   top: 0;
   right: 0;
   left: 0;
@@ -34,13 +46,23 @@ body {
   align-items: center;
   text-align: center;
   margin-left: 2vw;
-  font-size: clamp(1.2em, 1.4vw, 1.3em);
+  font-size: clamp(1.2em, 1.6vw, 1.3em);
+  font-weight: 500;
   padding: 0.6em;
   padding-right: 8vw;
+  padding-left: 6vw;
 }
 
 #navLogo {
   margin-right: auto;
+  margin-left: none;
+}
+
+#navLogo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 #toggleButton {
@@ -51,11 +73,6 @@ body {
   color: #ffffff;
   text-decoration: none;
   transition: 0.3s ease-in-out;
-}
-
-#navLinks div a:hover {
-  color: rgb(48, 209, 88);
-  font-weight: 600;
 }
 
 #navToggle {
@@ -87,16 +104,18 @@ body {
 
 #hero-section {
   position: relative;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
 #heroImage {
-  background: url(./img/hero2.jpg);
+  /* credit: https://unsplash.com/photos/green-ferns-on-a-black-background-hnysCJrPpkc?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash */
+  background: url(./img/hero3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   height: 100%;
   position: absolute;
   top: 0;
@@ -116,11 +135,11 @@ body {
   bottom: 0;
   height: 100%;
   background: linear-gradient(
+    rgba(9, 11, 9, 0.2),
+    rgba(9, 11, 9, 0),
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.5),
-    rgb(0, 0, 0, 1)
+    rgba(9, 11, 9, 0.2),
+    rgba(9, 11, 9, 1)
   );
   z-index: 2;
 }
@@ -137,99 +156,500 @@ body {
 }
 
 #heroText {
-  text-align: center;
   color: white;
-  height: 25vh;
+  min-height: 25vh;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#heroIcon {
+  clip-path: circle();
+  margin: 10% 0;
 }
 
 .greenHover {
-  cursor: default !important;
+  cursor: default;
   transition: 0.3s ease-in-out;
 }
 
-#heroText h1 {
-  font-weight: 500;
-}
-#heroText h5 {
-  font-weight: 400;
-}
-
 .greenHover:hover {
-  color: rgb(48, 209, 88);
+  color: rgb(48, 209, 88) !important;
   font-weight: bold !important;
 }
 
+.greenHoverStatic {
+  cursor: default;
+  color: rgb(48, 209, 88) !important;
+  font-weight: bold !important;
+}
+
+a.greenHover {
+  cursor: pointer !important;
+}
+
+#heroTextContainer {
+  width: 100%;
+}
+
+#heroTitle {
+  font-weight: 500;
+  font-size: clamp(3em, 3.6vw, 4.2vw);
+}
+
+#heroLocation,
+#heroTitle {
+  width: fit-content;
+}
+
+#heroTitle,
+#heroSubtitle,
+#heroLocation {
+  text-align: left;
+  padding: 0 6%;
+}
+
+#heroSubtitle {
+  font-weight: 400;
+  font-size: clamp(3.2em, 3.2vw, 4vw);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2em;
+}
+
+#slotEffect {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  height: 1.2em;
+  display: inline-block;
+  min-width: 0;
+  width: min-content;
+}
+
+.slotWord {
+  position: absolute;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(100%);
+}
+
+.slotWord.active {
+  opacity: 1;
+  position: relative;
+  transform: translateY(0);
+}
+
+.slotWord.prev {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.wordAfterSlot {
+  position: relative;
+  height: 1.2em;
+}
+
 .infoSection {
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10vh;
 }
 
 .infoSection h1.greenHover {
   width: fit-content;
+  margin-bottom: 4%;
   margin-left: auto;
   margin-right: auto;
+  font-size: clamp(2.6em, 3vw, 4vw);
+}
+
+.infoSection h1.greenHover:hover {
+  letter-spacing: 0.1em;
+}
+
+#missionSection {
+  position: relative;
+}
+
+.missionCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#missionText {
+  padding: 5%;
+}
+
+#missionText div {
+  width: 90%;
+}
+
+#missionSection div div img {
+  width: 90%;
+  max-width: 100%;
+  height: auto;
+  overflow-y: hidden;
+}
+
+.twoCol {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 #projectList {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10vh;
   justify-content: flex-start;
-  width: 100vw;
-  margin-top: 10vh;
+  width: 100%;
+  padding: 5% 5%;
 }
 
 .projectCard {
   text-align: center;
-  width: calc(1200px * 0.8);
-  max-width: 80vw;
+  width: 80%;
+  max-width: 900px;
   min-width: auto;
-  height: 30vh;
+  min-height: 30vh;
+  height: auto;
+  max-height: max-content;
   border-radius: 1.5em;
-  padding: clamp(2em, 10vw, 4em);
-  font-size: clamp(1.2em, calc(0.2em + 1.5vw), calc(0.4em + 1.2vw));
+  padding: clamp(1em, 8vw, 4em);
+  font-size: clamp(1.2em, calc(0.2em + 1.2vw), calc(0.4em + 1.2vw));
   overflow: hidden;
   background-color: #181a1b;
   box-shadow: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
   position: relative;
 }
 
+.projectCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1.5em;
+  padding: 10px;
+  background: rgb(0, 0, 0);
+  background: rgb(209, 255, 98);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(209, 255, 98, 1) 0%,
+    rgba(40, 186, 77, 1) 50%,
+    rgba(0, 255, 63, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(209, 255, 98, 1) 0%,
+    rgba(40, 186, 77, 1) 50%,
+    rgba(0, 255, 63, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(209, 255, 98, 1) 0%,
+    rgba(40, 186, 77, 1) 50%,
+    rgba(0, 255, 63, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d1ff62",endColorstr="#00ff3f",GradientType=1);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+.projectCard:hover::before,
+.projectCard:active::before {
+  opacity: 1;
+}
+
 .projectCard:hover {
-  transition: height 0.3s ease-in-out;
-  -webkit-box-shadow: inset 0px 0px 0px 10px rgba(255, 0, 0, 1);
-  -moz-box-shadow: inset 0px 0px 0px 10px rgba(255, 0, 0, 1);
-  box-shadow: inset 0px 0px 0px 10px rgba(255, 0, 0, 1);
+  transition: height 0.4s ease-in-out;
+  transform-origin: center;
   transform: scale(1.05);
-  height: calc(30vh + 2em);
 }
 
 .projectCard::after {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  text-align: left;
   transition: 0.4s ease-in-out;
   content: "";
   color: #8f8e93;
   opacity: 0;
-  height: 0; /* Start with height 0 */
-  visibility: hidden; /* Keep hidden until hover */
-  position: absolute; /* Position absolutely within the card */
-  left: 10%; /* Align it to the left */
-  right: 10%; /* Align it to the right */
-  bottom: 20%; /* Align it to the bottom */
-  transform: translateY(10%); /* Start slightly lower for effect */
+  height: 0;
+  visibility: hidden;
+  position: relative;
+  transform: translateY(10%);
 }
 
-.projectCard:hover::after {
-  content: "AFTER";
+.projectCard:hover::after,
+.projectCard:active::after {
+  content: attr(data-card-info);
   opacity: 1;
-  visibility: visible; /* Make it visible */
-  height: 20%; /* Set the desired height */
-  transform: translateY(0); /* Move it to its original position */
+  height: auto;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.projectCardIcons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  height: fit-content;
+  gap: 5%;
+  justify-content: flex-start;
+  margin-bottom: 10%;
+  overflow: visible;
+}
+
+.projectCardIcons a {
+  text-decoration: none;
+  color: white;
+}
+
+.projectCardIcons i {
+  font-size: 1.4em;
+  min-width: 1.4em;
+  padding: 0 2px;
+}
+
+.projectButton {
+  border: none;
+  border-radius: 1em;
+  font-size: clamp(0.4em, 0.8em, 1em);
+  padding: 0.2em 0.6em;
+  background-color: #8f8e93;
+}
+
+.projectButton:hover,
+.projectButton:active {
+  transition: all 0.4s ease-in-out;
+  transform: scale(1.05);
+  margin-left: 10px;
+}
+
+.projectButton i {
+  font-size: 1em;
+}
+
+.projectButton:hover #projectButtonGymIcon {
+  transition: all 0.4s ease-in-out;
+  padding-left: 0.2em;
+}
+
+.skillContainer {
+  margin-top: 0;
+  position: relative;
+  padding: 3em 0;
+  height: fit-content;
+}
+
+.skillCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  background-color: #181a1b;
+  color: #8f8e93;
+  width: 70%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em;
+  transition: all 0.4s ease-in-out;
+  border-radius: 1em;
+}
+
+.skillCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1em;
+  padding: 10px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d1ff62",endColorstr="#00ff3f",GradientType=1);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+#htmlCard.skillCard::before {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(255, 172, 78) 0%,
+    rgb(255, 83, 15) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(255, 172, 78) 0%,
+    rgb(255, 83, 15) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgb(255, 172, 78) 0%,
+    rgb(255, 83, 15) 100%
+  );
+}
+
+#cssCard.skillCard::before {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(151, 215, 255, 1) 0%,
+    rgba(68, 158, 240, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(151, 215, 255, 1) 0%,
+    rgba(68, 158, 240, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(151, 215, 255, 1) 0%,
+    rgba(68, 158, 240, 1) 100%
+  );
+}
+
+#bootstrapCard.skillCard::before {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(197, 148, 245) 0%,
+    rgba(127, 63, 183, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(197, 148, 245) 0%,
+    rgba(127, 63, 183, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgb(197, 148, 245) 0%,
+    rgba(127, 63, 183, 1) 100%
+  );
+}
+
+#jsCard.skillCard::before {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(255, 238, 159, 1) 0%,
+    rgba(250, 197, 10, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(255, 238, 159, 1) 0%,
+    rgba(250, 197, 10, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(255, 238, 159, 1) 0%,
+    rgba(250, 197, 10, 1) 100%
+  );
+}
+
+.skillCard:hover {
+  width: 90%;
+}
+
+.skillCard:hover::before {
+  opacity: 1;
+}
+
+.skillCard:hover .skillTitle {
+  transition: 0.3s ease-in-out;
+  letter-spacing: 0.1em;
+  font-weight: bold !important;
+}
+
+.skillTitle {
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(1.2em, 1.6em, 2em);
+  color: white;
+}
+
+#contactSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#contactSection h1 {
+  padding-bottom: 10%;
+}
+
+#contactSection div.container {
+  margin-bottom: 25%;
+}
+
+.contactLink {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.contactIcon {
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  color: white;
+}
+
+.contactIcon:hover,
+.contactIcon:active {
+  transform: scale(1.05);
+  color: rgb(48, 209, 88);
+}
+
+#carouselContainer {
+  width: 50% !important;
+  margin: 10% auto 30% auto;
+  border-radius: 1.5em;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: 50em;
+  object-fit: contain;
 }
 
 #footerSection {
-  background-color: #1e201e;
+  background-color: #121612;
   height: 15vh;
 }
 
