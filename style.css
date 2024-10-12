@@ -133,7 +133,7 @@ body {
     rgba(9, 11, 9, 0.2),
     rgba(9, 11, 9, 0),
     rgba(0, 0, 0, 0),
-    rgba(9, 11, 9, 0),
+    rgba(9, 11, 9, 0.2),
     rgba(9, 11, 9, 1)
   );
   z-index: 2;
@@ -192,7 +192,7 @@ a.greenHover {
 #heroTitle {
   font-weight: 500;
   font-size: clamp(3em, 3.6vw, 4.2vw);
-  width:fit-content;
+  width: fit-content;
 }
 
 #heroSubtitle {
@@ -248,7 +248,6 @@ a.greenHover {
   height: 1.2em;
 }
 
-
 .infoSection {
   position: relative;
   min-height: 100vh;
@@ -263,6 +262,10 @@ a.greenHover {
   margin-left: auto;
   margin-right: auto;
   font-size: clamp(2.6em, 3vw, 4vw);
+}
+
+.infoSection h1.greenHover:hover {
+  letter-spacing: 0.1em;
 }
 
 #missionSection {
@@ -363,7 +366,7 @@ a.greenHover {
   mask-composite: exclude;
   opacity: 0;
   transition: all 0.4s ease-in-out;
-  pointer-events:none;
+  pointer-events: none;
 }
 
 .projectCard:hover::before,
@@ -404,9 +407,11 @@ a.greenHover {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4%;
+  height: fit-content;
+  gap: 5%;
   justify-content: flex-start;
-  margin: 50% 0;
+  margin-bottom: 10%;
+  overflow: visible;
 }
 
 .projectCardIcons a {
@@ -416,29 +421,172 @@ a.greenHover {
 
 .projectCardIcons i {
   font-size: 1.4em;
-  min-width: 1.2em;
+  min-width: 1.4em;
+  padding: 0 2px;
 }
 
 .projectButton {
-  border:none;
+  border: none;
   border-radius: 1em;
   font-size: clamp(0.4em, 0.8em, 1em);
-  padding:  0.2em 0.6em;
+  padding: 0.2em 0.6em;
   background-color: #8f8e93;
 }
 
 .projectButton:hover,
 .projectButton:active {
   transition: all 0.4s ease-in-out;
-  background-color: red;
+  transform: scale(1.05);
+  margin-left: 10px;
 }
 
 .projectButton i {
   font-size: 1em;
 }
 
-.scale {
-  transform: scale(1.5) !important;
+.projectButton:hover #projectButtonGymIcon {
+  transition: all 0.4s ease-in-out;
+  padding-left: 0.2em;
+}
+
+.skillContainer {
+  margin-top: 0;
+  position: relative;
+  padding: 3em 0;
+  height: fit-content;
+}
+
+.skillCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  background-color: #181a1b;
+  color: #8f8e93;
+  width: 70%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.skillCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1em;
+  padding: 10px; /* This creates the border width */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d1ff62",endColorstr="#00ff3f",GradientType=1);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  pointer-events: none;
+}
+
+#htmlCard.skillCard::before {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(255, 172, 78) 0%,
+    rgb(255, 83, 15) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(255, 172, 78) 0%,
+    rgb(255, 83, 15) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgb(255, 172, 78) 0%,
+    rgb(255, 83, 15) 100%
+  );
+}
+
+#cssCard.skillCard::before {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(151, 215, 255, 1) 0%,
+    rgba(68, 158, 240, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(151, 215, 255, 1) 0%,
+    rgba(68, 158, 240, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(151, 215, 255, 1) 0%,
+    rgba(68, 158, 240, 1) 100%
+  );
+}
+
+#bootstrapCard.skillCard::before {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgb(197, 148, 245) 0%,
+    rgba(127, 63, 183, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgb(197, 148, 245) 0%,
+    rgba(127, 63, 183, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgb(197, 148, 245) 0%,
+    rgba(127, 63, 183, 1) 100%
+  );
+}
+
+#jsCard.skillCard::before {
+  background: rgb(0, 0, 0);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(255, 238, 159, 1) 0%,
+    rgba(250, 197, 10, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(255, 238, 159, 1) 0%,
+    rgba(250, 197, 10, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(255, 238, 159, 1) 0%,
+    rgba(250, 197, 10, 1) 100%
+  );
+}
+
+.skillCard:hover::before {
+  opacity: 1;
+}
+
+.skillCard:hover .skillTitle {
+  transition: 0.3s ease-in-out;
+  letter-spacing: 0.1em;
+  font-weight: bold !important;
+}
+
+.skillCard p::selection {
+  background: rgb(48, 209, 88);
+  color: white;
+}
+
+.skillTitle {
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(1.2em, 1.6em, 2em);
+  color: white;
 }
 
 #footerSection {

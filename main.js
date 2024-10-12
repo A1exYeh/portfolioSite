@@ -52,7 +52,7 @@ function checkNavWdith() {
     toggleButton.style.visibility = "visible";
     //hide the links
     navLinks.forEach((link) => {
-      link.style.visibility = "hidden";
+      // link.style.visibility = "hidden";
       link.style.opacity = "0";
     });
     navLinks.forEach((link) => {
@@ -102,7 +102,6 @@ document.addEventListener("DOMContentLoaded", function () {
       card.setAttribute("data-card-info", projectCardInfo[index]);
     }
   });
-
 });
 
 //toggles the opening of the menu on click
@@ -130,18 +129,19 @@ toggleButton.addEventListener("click", function () {
   }
 });
 
-projectButtonGym.addEventListener("mouseenter", function () {
-  // projectButtonGymIcon.style.color = "rgb(48, 209, 88)";
-  // projectButtonGymIcon.classList.remove("bi-arrow-up-right-square");
-  // projectButtonGymIcon.classList.add("bi-arrow-up-right-square-fill");
-  projectButtonGymIcon.classList.add("scale");
-  console.log("scale add");
-});
+// code for a proposed function that would've made the icon grow on hover
+// projectButtonGym.addEventListener("mouseenter", function () {
+//   // projectButtonGymIcon.style.color = "rgb(48, 209, 88)";
+//   // projectButtonGymIcon.classList.remove("bi-arrow-up-right-square");
+//   // projectButtonGymIcon.classList.add("bi-arrow-up-right-square-fill");
+//   projectButtonGymIcon.classList.add("scale");
+//   console.log("scale add");
+// });
 
-projectButtonGym.addEventListener("mouseleave", function () {
-  // projectButtonGymIcon.style.color = "black";
-  // projectButtonGymIcon.classList.add("bi-arrow-up-right-square");
-  // projectButtonGymIcon.classList.remove("bi-arrow-up-right-square-fill");
-  projectButtonGymIcon.classList.remove("scale");
-  console.log("scale remove");
-});
+// projectButtonGym.addEventListener("mouseleave", function () {
+//   // projectButtonGymIcon.style.color = "black";
+//   // projectButtonGymIcon.classList.add("bi-arrow-up-right-square");
+//   // projectButtonGymIcon.classList.remove("bi-arrow-up-right-square-fill");
+//   projectButtonGymIcon.classList.remove("scale");
+//   console.log("scale remove");
+// });
